@@ -6,10 +6,11 @@ public class LevelManager : Singleton<LevelManager>
 {
     //[SerializeField] Level[] levels;
     //public Level currentLevel;
+    int level = 0;
 
     public void Start()
     {
-        OnLoadLevel(0);
+        OnLoadLevel(level);
         OnInit();
     }
 
@@ -19,8 +20,14 @@ public class LevelManager : Singleton<LevelManager>
         //player.OnInit();
     }
 
+    //goi khi bat dau gameplay
+    public void OnPlay()
+    {
+
+    }
+
     //reset trang thai khi ket thuc game
-    public void OnReset()
+    public void OnDespawn()
     {
         //player.OnDespawn();
         //for (int i = 0; i < bots.Count; i++)
@@ -41,6 +48,29 @@ public class LevelManager : Singleton<LevelManager>
         //}
 
         //currentLevel = Instantiate(levels[level]);
+    }
+
+
+    public void OnWin()
+    {
+
+    }
+
+    public void OnLose()
+    {
+
+    }
+
+    public void CollectItem(Item item)
+    {
+
+    }
+
+    public void OnNextLevel()
+    {
+        OnDespawn();
+        OnLoadLevel(++level);
+        OnInit();
     }
 
 }
