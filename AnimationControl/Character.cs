@@ -2,15 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CompareTagName
+namespace ChangeAnim
 {
     public class Character : MonoBehaviour
     {
-        private void OnTriggerEnter(Collider other)
+        [SerializeField] Animator anim;
+        private string animName;
+
+        private void Start()
         {
-            if (other.CompareTag(Constants.TAG_BRICK))
+            ChangeAnim(Constants.ANIM_IDLE);
+        }
+
+        public void ChangeAnim(string animName)
+        {
+            if (this.animName != animName)
             {
-                //DO SOMETHINGS...
+                anim.ResetTrigger(this.animName);
+                this.animName = animName;
+                anim.SetTrigger(this.animName);
             }
         }
     }

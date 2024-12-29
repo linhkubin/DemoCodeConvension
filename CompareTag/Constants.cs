@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ChangeAnim
+namespace CompareTagName
 {
     public class Constants
     {
